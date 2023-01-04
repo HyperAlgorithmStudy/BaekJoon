@@ -24,33 +24,33 @@ public class P1934_gcd {
 			cloneB[i] = B[i];
 		}
 
-		int gsd = 0;
 		int gcd = 0;
+		int gcm = 0;
 		int quotient = 0;
 		for (int i = 0; i < T; i++) {
 			while (B[i] != 0 || A[i] != 0) {
 				if (A[i] == 1) {
-					gsd = A[i];
+					gcd = A[i];
 					break;
 				}
 				B[i] = B[i] % A[i];
 				if (B[i] == 0) {
-					gsd = A[i];
+					gcd = A[i];
 					break;
 				} else if (A[i] == 0) {
-					gsd = B[i];
+					gcd = B[i];
 					break;
 				}
 				A[i] = A[i] % B[i];
 				if (B[i] == 0) {
-					gsd = A[i];
+					gcd = A[i];
 					break;
 				} else if (A[i] == 0) {
-					gsd = B[i];
+					gcd = B[i];
 					break;
 				}
 			}
-			quotient = cloneB[i] / gsd;
+			quotient = cloneB[i] / gcd;
 			gcd = quotient * cloneA[i];
 			System.out.println(gcd);
 		}
