@@ -25,7 +25,7 @@ public class P1934_gcd {
 		}
 
 		int gcd = 0;
-		int gcm = 0;
+		int lcm = 0;
 		int quotient = 0;
 		for (int i = 0; i < T; i++) {
 			while (B[i] != 0 || A[i] != 0) {
@@ -51,8 +51,8 @@ public class P1934_gcd {
 				}
 			}
 			quotient = cloneB[i] / gcd;
-			gcd = quotient * cloneA[i];
-			System.out.println(gcd);
+			lcm = quotient * cloneA[i];
+			System.out.println(lcm);
 		}
 
 	}
