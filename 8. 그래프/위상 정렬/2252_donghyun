@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        
+        // 진입 차수 배열 선언
+        int[] arr = new int[n+1];
+
+        // 인접 리스트 선언 및 초기화
+        ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+        for(int i = 0; i <= n; i++){
+            list.add(new ArrayList<>());
+        }
+        for(int i = 0 ; i < m; i++){
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+
+            list.get(a).add(b);
+            arr[b]++; // 진입 차수 배열 초기화
+        }
+
+        //System.out.println(list);
+
+        Queue<Integer> q = new LinkedList<>();
+
+        // 만약 진입 차수 배열이 0이면 큐에 offer
+        for(int i = 1; i <= n; i++){
+            if(arr[i] == 0){
+                q.offer(i);
+            }
+        }
+
+        while(!q.isEmpty()){
+            int now = q.poll();
+            System.out.print(now + " ");
+            // 가르키는 부분 진입 차수 배열에서 --하고 0이면 큐에 offer
+            for(int next : list.get(now)){ 
+                arr[next]--;
+                if(arr[next] == 0)
+                    q.offer(next);
+            }
+        }
+
+
+    }
+}
