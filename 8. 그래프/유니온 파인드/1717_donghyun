@@ -22,10 +22,10 @@ public class Main {
             int a = sc.nextInt();
             int b = sc.nextInt();
 
-            // union을 실행하기
+            // 합집합 연산
             if(x == 0)
                 union(a,b);
-            // find 실행
+            // 교집합 여부 확인
             else{
                 if(find(a) == find(b)){
                     System.out.println("YES");
