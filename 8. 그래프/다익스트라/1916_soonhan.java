@@ -70,10 +70,7 @@ class Edge implements Comparable<Edge> {
 
 	@Override
 	public int compareTo(Edge e) {
-		if (this.value > e.value)
-			return 1;
-		else
-			return -1;
+		return this.value > e.value ? 1 : -1;
 	}
-
+    
 }
