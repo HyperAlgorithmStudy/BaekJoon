@@ -1,0 +1,61 @@
+package baekjoon.그래프;
+
+import java.util.Scanner;
+
+public class Main {
+    public static int[] parent;
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        parent = new int[n+1]; // 대표노드(부모노드)를 나타내는 배열
+
+        // 처음에는 연결된 노드가 없으니 대표노드를 자기 자신으로 초기화
+        for(int i = 0 ; i < parent.length; i++){
+            parent[i] = i;
+        }
+
+        for(int i = 0 ; i < m; i++){
+            int x = sc.nextInt(); // 0이면 a와 b집합을 합친다. 1이면 a와 b가 같은 집합에 포함되어 있는지 확인한다
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+
+            // union을 실행하기
+            if(x == 0)
+                union(a,b);
+            // find 실행
+            else{
+                if(find(a) == find(b)){
+                    System.out.println("YES");
+                }
+                else
+                    System.out.println("NO");
+            }
+
+
+
+        }
+   }
+
+   public static void union(int a, int b){
+        a = find(a);
+        b = find(b);
+        if(a != b)
+            parent[b] = a;
+        /*
+        arr[find(b)] = find(a);
+         */
+   }
+
+   // 매개변수로 받은 원소 a의 부모노드가 누구인지 찾아주는 함수
+   public static int find(int a){
+        // 재귀가 끝나는 조건
+        if(a == parent[a])
+            return a;
+        else{
+            return parent[a] = find(parent[a]); // 경로압축
+        }
+   }
+}
