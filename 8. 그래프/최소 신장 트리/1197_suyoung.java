@@ -25,7 +25,7 @@ public class Main {
 
         int edgeNum = 0;
         int ans = 0;
-        while(edgeNum < V -1){
+        while(edgeNum < V -1){ // 유니온파인드 연산으로 !queue.isEmpty() 조건으로도 같은 결과 나옴
             Edge now = queue.poll();
             if(find(now.start) != find(now.end)){
                 ans += now.value;
