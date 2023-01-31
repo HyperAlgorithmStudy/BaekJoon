@@ -35,7 +35,7 @@ public class P2_k진수에서소수개수구하기 {
 		int answer = cnt;
 		return answer;
 	}
-//에라스토테네스 채 소수판별
+//	에라스토테네스 채 소수판별 메서드
 	private static boolean isPrimeNumber(long n) {
 		if (n <= 1) {
 			return false;
