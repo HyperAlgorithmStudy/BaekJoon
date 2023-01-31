@@ -24,7 +24,6 @@ public class P2_k진수에서소수개수구하기 {
 			}
 			A.add(Long.parseLong(str));
 		}
-		A.sort(null);
 		int cnt = 0;
 		for (int i = 0; i < A.size(); i++) {
 			if (isPrimeNumber(A.get(i))) {
