@@ -92,5 +92,4 @@ public class P3_주차요금계산 {
 		long min = Math.abs(diff / 60000);
 		return (int) min;
 	}
-
 }
