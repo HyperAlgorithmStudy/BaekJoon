@@ -31,10 +31,7 @@ public class P1_개인정보수집유효기간 {
 				destructionList.add(i + 1);
 		}
 
-		int[] answer = new int[destructionList.size()];
-		for (int i = 0; i < destructionList.size(); i++) {
-			answer[i] = destructionList.get(i);
-		}
+		int[] answer = destructionList.stream().mapToInt(Integer::intValue).toArray();
 		return answer;
 	}
   
