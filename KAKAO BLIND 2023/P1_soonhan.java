@@ -14,10 +14,10 @@ public class P1_개인정보수집유효기간 {
 	}
 
 	public static int[] solution(String today, String[] terms, String[] privacies) {
-    // 약관의 유효기간 자료
-		HashMap<String, Integer> termsOfTerms = new HashMap<>();
+    // 약관의 유효기간(월 -> 일)자료
+		HashMap<String, Integer> daysOfTerms = new HashMap<>();
 		for (int i = 0; i < terms.length; i++) {
-			termsOfTerms.put(terms[i].split(" ")[0], Integer.parseInt(terms[i].split(" ")[1]) * 28);
+			daysOfTerms.put(terms[i].split(" ")[0], Integer.parseInt(terms[i].split(" ")[1]) * 28);
 		}
     // today 누적 날짜 합 (년 + 월 + 일)
 		int todayCumulativeDate = calculateDays(today);
@@ -27,7 +27,7 @@ public class P1_개인정보수집유효기간 {
     // 비교해서 남은 날이 유효기간 이상이면 파기리스트에 넣어준다.
 		for (int i = 0; i < privacies.length; i++) {
 			int remainDays = todayCumulativeDate - calculateDays(privacies[i].split(" ")[0]);
-			if (remainDays >= termsOfTerms.get(privacies[i].split(" ")[1]))
+			if (remainDays >= daysOfTerms.get(privacies[i].split(" ")[1]))
 				destructionList.add(i + 1);
 		}
 
